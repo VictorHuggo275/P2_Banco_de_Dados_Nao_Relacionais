@@ -15,8 +15,6 @@ services:
       MONGODB_DATABASE: ecommerce
       MONGODB_COLLECTION: pedidos
 
-    # FIX: use condition: service_healthy so the API only starts once every
-    # dependency has passed its healthcheck (not merely "started").
     depends_on:
       mongodb:
         condition: service_healthy
@@ -70,8 +68,7 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
     healthcheck:
-      # kafka-broker-api-versions is bundled in the Confluent image and exits 0
-      # only once the broker is fully up and accepting connections.
+
       test:
         [
           "CMD",

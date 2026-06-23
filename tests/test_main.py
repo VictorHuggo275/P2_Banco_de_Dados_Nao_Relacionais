@@ -1,10 +1,3 @@
-"""
-Tests for the Pedidos API.
-All external services (MongoDB, Kafka, RabbitMQ) are mocked via conftest.py,
-so no live infrastructure is needed to run these tests.
-"""
-
-
 def test_criar_pedido(client):
     resposta = client.post(
         "/pedidos",

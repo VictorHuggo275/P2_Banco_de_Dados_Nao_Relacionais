@@ -35,8 +35,6 @@ class RabbitMQService:
                 durable=True,
             )
 
-            # FIX: send only the minimal info needed to identify the order,
-            # not the full pedido object.
             payload = json.dumps(
                 {
                     "evento": "PEDIDO_CRIADO",
