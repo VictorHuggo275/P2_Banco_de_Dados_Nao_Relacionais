@@ -142,10 +142,3 @@ O pedido é salvo no MongoDB.
 Um evento é publicado no Kafka.  
 Uma mensagem é publicada no RabbitMQ.  
 Consumidores processam eventos em background e armazenam logs em memória.
-
-## Observações
-
-A aplicação utiliza comunicação assíncrona com Kafka e RabbitMQ.  
-O MongoDB é o banco principal de persistência.  
-Os consumidores rodam em background dentro da aplicação.  
-O projeto foi desenvolvido para fins acadêmicos.
