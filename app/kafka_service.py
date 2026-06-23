@@ -2,11 +2,11 @@ import json
 import logging
 import time
 from threading import Lock, Thread
+
 from kafka import KafkaConsumer, KafkaProducer
 from kafka.errors import NoBrokersAvailable
 
 logger = logging.getLogger(__name__)
-
 
 class KafkaService:
     def __init__(self, bootstrap_servers: str, topic: str):
@@ -52,7 +52,6 @@ class KafkaService:
                             "utf-8"
                         ),
                     )
-
                     return self._producer
 
                 except NoBrokersAvailable:
@@ -76,6 +75,8 @@ class KafkaService:
                         value.decode("utf-8")
                     ),
                 )
+
+                logger.info("Kafka consumer iniciado com sucesso.")
 
                 for record in consumer:
                     payload = record.value
